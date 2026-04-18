@@ -21,7 +21,7 @@
         { key: "ge", label: "ゲ", ext: "svg" },
         { key: "t", label: "T", ext: "svg" },
         { key: "h", label: "H", ext: "svg" },
-
+        {key:"-",label:"-",ext:"png"}
   
     ];
 
