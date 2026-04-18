@@ -42,8 +42,8 @@
         
         let style = "height:1em; vertical-align:middle; display:inline-block; margin:0 0.05em;";
         if (key === "-") {
-            // 極端に控えめなスタイル
-            style = "height:0.3em; width:0.2em; vertical-align:middle; display:inline-block; margin:0 0.1em; object-fit:contain; opacity:0.6;";
+            // 他の文字と馴染む中間的なサイズ
+            style = "height:0.45em; width:0.3em; vertical-align:middle; display:inline-block; margin:0 0.08em; object-fit:contain; opacity:0.8;";
         }
         
         return `<img src="${url}" alt="${key}" style="${style}">`;
