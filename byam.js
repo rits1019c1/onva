@@ -5,7 +5,7 @@
     const onvaData = [
         { key: "!a", label: "ア゛", ext: "png" },
         { key: "e", label: "エ", ext: "png" },
-        { key: "vu", label: "ヴ", ext: "png" },
+        { key: "u", label: "ウ", ext: "png" },
         { key: "wo", label: "ヲ", ext: "png" },
         { key: "i", label: "イ", ext: "png" },
         { key: "yu", label: "ユ", ext: "png" },
