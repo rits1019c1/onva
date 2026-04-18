@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <title>Onva Typing Game</title>
+    <style>
+        body { font-family: sans-serif; text-align: center; padding-top: 50px; }
+        .onva { font-size: 3rem; font-weight: bold; display: block; margin-bottom: 20px; }
+        input { font-size: 1.5rem; padding: 5px; text-align: center; }
+        #message { margin-top: 20px; font-weight: bold; height: 1.5em; }
+        .correct { color: green; }
+        .incorrect { color: red; }
+    </style>
+</head>
+<body>
+
+    <span id="display" class="onva"></span>
+
+    <br>
+
+    <input type="text" id="answerInput" placeholder="答えを入力..." autocomplete="off">
+
+    <div id="message"></div>
+
+    <script type="module">
+        // 外部JSをインポート (必要に応じてパスを調整してください)
+        // ※byam.js内でexport defaultやexport constが定義されている前提です
+        import * as onvaModule from "https://rits1019c1.github.io/onva/byam.js";
+
+        const onvaData = [
+            { key: "!a", label: "ア゛", ext: "png" },
+            { key: "e", label: "エ", ext: "png" },
+            { key: "u", label: "ウ", ext: "png" },
+            { key: "wo", label: "ヲ", ext: "png" },
+            { key: "i", label: "イ", ext: "png" },
+            { key: "yu", label: "ユ", ext: "png" },
+            { key: "r", label: "R", ext: "svg" },
+            { key: "b", label: "B", ext: "svg" },
+            { key: "g", label: "G", ext: "svg" },
+            { key: "p", label: "P", ext: "svg" },
+            { key: "bya", label: "ビャ", ext: "svg" },
+            { key: "m", label: "M", ext: "svg" },
+            { key: "n", label: "ン", ext: "svg" },
+            { key: "z", label: "Z", ext: "svg" },
+            { key: "sye", label: "シェ", ext: "svg" },
+            { key: "ge", label: "ゲ", ext: "svg" },
+            { key: "t", label: "T", ext: "svg" },
+            { key: "h", label: "H", ext: "svg" },
+            { key: "-", label: "-", ext: "svg" }
+        ];
+
+        let currentQuestion = ""; // 現在の問題（keyの結合体）
+
+        const displaySpan = document.getElementById('display');
+        const inputField = document.getElementById('answerInput');
+        const messageDiv = document.getElementById('message');
+
+        // 新しい問題を作成する関数
+        function nextQuestion() {
+            inputField.value = "";
+            messageDiv.textContent = "";
+            
+            // 1〜3文字をランダムに決定
+            const wordLength = Math.floor(Math.random() * 3) + 1;
+            let selectedLabels = "";
+            let selectedKeys = "";
+
+            for (let i = 0; i < wordLength; i++) {
+                const randomIndex = Math.floor(Math.random() * onvaData.length);
+                const item = onvaData[randomIndex];
+                selectedLabels += item.label;
+                selectedKeys += item.key;
+            }
+
+            currentQuestion = selectedKeys;
+            displaySpan.textContent = selectedLabels;
+        }
+
+        // 入力を判定するイベント
+        inputField.addEventListener('input', () => {
+            if (inputField.value === currentQuestion) {
+                messageDiv.textContent = "正解！";
+                messageDiv.className = "correct";
+                
+                // 少し遅らせて次の問題へ
+                setTimeout(nextQuestion, 800);
+            } else {
+                // 途中経過または間違い
+                messageDiv.textContent = "";
+            }
+        });
+
+        // 最初の問題を表示
+        nextQuestion();
+    </script>
+</body>
+</html>
