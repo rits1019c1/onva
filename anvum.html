@@ -4,7 +4,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>!anvum - onva Language Guide</title>
+    <title>!anbyam - onva Language Guide</title>
     <script src="https://cdn.tailwindcss.com"></script>
     <script type="module" src="https://rits1019c1.github.io/onva/byam.js"></script>
     <style>
@@ -58,17 +58,18 @@
                 <span class="onva text-2xl font-bold text-slate-900">!anbya</span>
             </div>
             <div class="flex gap-8 text-[11px] font-bold tracking-widest text-slate-500 uppercase">
-                <a href="index.html" class="hover:text-slate-900 transition">Kingdom</a>
-                <a href="anvum.html" class="text-blue-600 border-b-2 border-blue-600 pb-1">!Anvum</a>
+                <a href="index.html" class="hover:text-slate-900 transition font-black">Kingdom</a>
+                <a href="anvum.html" class="text-blue-600 border-b-2 border-blue-600 pb-1 font-black">!anbyam</a>
+                <a href="study.html" class="hover:text-slate-900 transition font-black">Study</a>
             </div>
         </div>
     </nav>
 
     <main class="pt-32 pb-24 px-6 max-w-6xl mx-auto">
         <header class="mb-20">
-            <h1 class="text-5xl font-bold text-slate-900 mb-6 tracking-tighter">!anvum</h1>
+            <h1 class="text-5xl font-bold text-slate-900 mb-6 tracking-tighter">!anbyam</h1>
             <p class="text-xl text-slate-500 max-w-3xl leading-relaxed">
-                onva語（!anvum）は、18の音素による「言語の最適化」を目的としています。
+                onva語（!anbyam）は、18の音素による「言語の最適化」を目的としています。
             </p>
         </header>
 
@@ -140,17 +141,20 @@
             <div class="bg-white rounded-[2rem] p-8 border border-slate-100 shadow-sm space-y-12">
                 <!-- Search -->
                 <div class="space-y-4">
-                    <label class="block text-[10px] font-black uppercase tracking-widest text-slate-400">Search Dictionary (単語検索)</label>
-                    <input type="text" id="vocab-search" placeholder="意味や綴りで検索..." 
+                    <label class="block text-[10px] font-black uppercase tracking-widest text-slate-400">Search
+                        Dictionary (単語検索)</label>
+                    <input type="text" id="vocab-search" placeholder="意味や綴りで検索..."
                         class="w-full bg-slate-50 border-none rounded-2xl px-6 py-4 text-lg font-bold text-slate-900 focus:ring-2 focus:ring-indigo-500 outline-none transition">
                 </div>
-                
+
                 <!-- Analyzer -->
                 <div class="space-y-4">
-                    <label class="block text-[10px] font-black uppercase tracking-widest text-slate-400">Word Analyzer (単語分解)</label>
-                    <input type="text" id="analyzer-input" placeholder="分解したい単語を入力 (例: !aiwon)..." 
+                    <label class="block text-[10px] font-black uppercase tracking-widest text-slate-400">Word Analyzer
+                        (単語分解)</label>
+                    <input type="text" id="analyzer-input" placeholder="分解したい単語を入力 (例: !aiwon)..."
                         class="w-full bg-slate-50 border-none rounded-2xl px-6 py-4 text-lg font-bold text-slate-900 focus:ring-2 focus:ring-purple-500 outline-none transition">
-                    <div id="analyzer-result" class="flex flex-wrap gap-4 p-6 bg-slate-50/50 rounded-2xl min-h-[120px] items-center justify-center">
+                    <div id="analyzer-result"
+                        class="flex flex-wrap gap-4 p-6 bg-slate-50/50 rounded-2xl min-h-[120px] items-center justify-center">
                         <p class="text-slate-300 text-sm italic">解析された文字がここに表示されます</p>
                     </div>
                 </div>
@@ -169,7 +173,8 @@
                     <div class="space-y-4" id="vocab-basics"></div>
                 </div>
                 <div class="bg-white rounded-3xl p-8 border border-slate-100">
-                    <h3 class="text-blue-500 font-black text-xs uppercase tracking-widest mb-6">Concepts, IT & Numbers</h3>
+                    <h3 class="text-blue-500 font-black text-xs uppercase tracking-widest mb-6">Concepts, IT & Numbers
+                    </h3>
                     <div class="space-y-4" id="vocab-concepts"></div>
                 </div>
                 <div class="bg-white rounded-3xl p-8 border border-slate-100">
@@ -179,6 +184,10 @@
                 <div class="bg-white rounded-3xl p-8 border border-slate-100">
                     <h3 class="text-emerald-500 font-black text-xs uppercase tracking-widest mb-6">Conversation</h3>
                     <div class="space-y-4" id="vocab-conv"></div>
+                </div>
+                <div class="bg-white rounded-3xl p-8 border border-slate-100">
+                    <h3 class="text-orange-500 font-black text-xs uppercase tracking-widest mb-6">Geography</h3>
+                    <div class="space-y-4" id="vocab-geo"></div>
                 </div>
             </div>
         </section>
@@ -194,15 +203,15 @@
                     <h3 class="text-orange-500 font-black text-xs uppercase tracking-widest mb-6">Daily</h3>
                     <div class="space-y-8">
                         <div>
-                            <div class="onva-r text-3xl mb-2">b-!a . sye !anbya won</div>
+                            <div class="onva-r text-3xl mb-2">b-!asye!anbyawon</div>
                             <div class="text-sm text-slate-500">こんにちは。私はonvaの民です。</div>
                         </div>
                         <div>
-                            <div class="onva-r text-3xl mb-2">yu i wo ?</div>
+                            <div class="onva-r text-3xl mb-2">yuiwo?</div>
                             <div class="text-sm text-slate-500">あなたは何を食べますか？</div>
                         </div>
                         <div>
-                            <div class="onva-r text-3xl mb-2">b-bya . sye h be</div>
+                            <div class="onva-r text-3xl mb-2">b-byasyehbe</div>
                             <div class="text-sm text-slate-500">ありがとう。私は美（心地よさ）を持っています。</div>
                         </div>
                     </div>
@@ -215,7 +224,7 @@
                             <div class="text-sm text-slate-500">私はiPhoneを持っています。</div>
                         </div>
                         <div>
-                            <div class="onva-r text-3xl mb-2">ritt -!abh !ann</div>
+                            <div class="onva-r text-3xl mb-2">ritt-!abh !ann</div>
                             <div class="text-sm text-slate-500">AIがたった今、思考を得ました。</div>
                         </div>
                         <div>
@@ -310,15 +319,20 @@
                 { k: "wo-t", m: "10（十）" }
             ],
             verbs: [
-                {k: "wor", m: "寝る"}, {k: "i", m: "食べる"}, {k: "h", m: "持つ"}, 
-                {k: "ne", m: "見る"}, {k: "te", m: "行く"}, {k: "ti", m: "来る"},
-                {k: "bya", m: "話す"}, {k: "m-i", m: "飲む"}, {k: "bya-m", m: "歌う"},
-                {k: "p-z", m: "座る/踏む"}, {k: "h-wo", m: "上げる"}
+                { k: "wor", m: "寝る" }, { k: "i", m: "食べる" }, { k: "h", m: "持つ" },
+                { k: "ne", m: "見る" }, { k: "te", m: "行く" }, { k: "ti", m: "来る" },
+                { k: "bya", m: "話す" }, { k: "m-i", m: "飲む" }, { k: "bya-m", m: "歌う" },
+                { k: "p-z", m: "座る/踏む" }, { k: "h-wo", m: "上げる" }
             ],
             conv: [
-                {k: "b-!a", m: "こんにちは"}, {k: "b-bya", m: "ありがとう"}, {k: "n-bya", m: "ごめんなさい"},
-                {k: "te-wo", m: "さようなら"}, {k: "h-b", m: "お願い"}, {k: "b-u", m: "楽しい/良"},
-                {k: "sye-yu", m: "大好き"}
+                { k: "b-!a", m: "こんにちは" }, { k: "b-bya", m: "ありがとう" }, { k: "n-bya", m: "ごめんなさい" },
+                { k: "te-wo", m: "さようなら" }, { k: "h-b", m: "お願い" }, { k: "b-u", m: "楽しい/良" },
+                { k: "sye-yu", m: "大好き" }, { k: "sye!ab", m: "よろしくお願いします" }
+            ],
+            geo: [
+                { k: "yu-ri!a", m: "ユーラシア大陸" }, { k: "!autr!a", m: "オーストラリア" },
+                { k: "byap!an", m: "日本" }, { k: "byap!anm", m: "日本語" },
+                { k: "!anbya", m: "onva" }, { k: "!anbyam", m: "onva語" }
             ]
         };
 
@@ -333,9 +347,9 @@
         const renderVocab = (id, data, filter = "") => {
             const container = document.getElementById(id);
             container.innerHTML = '';
-            
-            const filteredData = data.filter(v => 
-                v.k.toLowerCase().includes(filter.toLowerCase()) || 
+
+            const filteredData = data.filter(v =>
+                v.k.toLowerCase().includes(filter.toLowerCase()) ||
                 v.m.includes(filter)
             );
 
@@ -345,7 +359,7 @@
                 el.innerHTML = `<div><div class="onva text-xl text-slate-900">${v.k}</div><div class="text-[9px] font-mono text-slate-400 uppercase">${v.k}</div></div><div class="text-sm font-bold text-slate-500">${v.m}</div>`;
                 container.appendChild(el);
             });
-            
+
             if (typeof window.renderOnva === 'function') { window.renderOnva(); }
         };
 
@@ -354,6 +368,7 @@
             renderVocab('vocab-concepts', vocabulary.concepts, filter);
             renderVocab('vocab-verbs', vocabulary.verbs, filter);
             renderVocab('vocab-conv', vocabulary.conv, filter);
+            renderVocab('vocab-geo', vocabulary.geo, filter);
         };
 
         updateAllVocab();
@@ -410,7 +425,7 @@
                     if (!matched) wordIdx++;
                 }
             });
-            
+
             if (typeof window.renderOnva === 'function') { window.renderOnva(); }
         });
 
