@@ -35,9 +35,16 @@
                 <span class="onva text-2xl font-bold text-slate-900">!anbya</span>
                 <span class="text-[10px] tracking-[0.3em] font-black text-slate-400">EST. 1928</span>
             </div>
-            <div class="flex gap-8 text-[11px] font-bold tracking-widest text-slate-500 uppercase">
-                <a href="index.html" class="text-blue-600 border-b-2 border-blue-600 pb-1">Kingdom</a>
-                <a href="anvum.html" class="hover:text-slate-900 transition">!Anvum</a>
+            <div class="flex items-center gap-6">
+                <div class="flex gap-4 text-[11px] font-bold tracking-widest text-slate-500 uppercase">
+                    <a href="index.html" class="nav-item text-blue-600 border-b-2 border-blue-600 pb-1" data-key="nav-kingdom">Kingdom</a>
+                    <a href="anvum.html" class="nav-item hover:text-slate-900 transition" data-key="nav-anvum">!Anvum</a>
+                </div>
+                <!-- Language Switcher -->
+                <button id="lang-toggle" class="bg-slate-100 hover:bg-slate-200 px-3 py-1 rounded-full text-[10px] font-black text-slate-900 transition flex items-center gap-2">
+                    <span id="lang-current">JP</span>
+                    <svg xmlns="http://www.w3.org/2000/svg" class="h-3 w-3" viewBox="0 0 20 20" fill="currentColor"><path fill-rule="evenodd" d="M4 2a2 2 0 00-2 2v11a3 3 0 106 0V4a2 2 0 00-2-2H4zm1 14a1 1 0 100-2 1 1 0 000 2zm5-1.757l4.9-4.9a1 1 0 00-1.414-1.414L10 12.429l-1.486-1.486a1 1 0 10-1.414 1.414l2.9 2.9a1 1 0 001.414 0z" clip-rule="evenodd" /></svg>
+                </button>
             </div>
         </div>
     </nav>
@@ -100,8 +107,84 @@
 
     <footer class="py-20 border-t border-slate-100 text-center">
         <div class="onva text-4xl text-slate-200 mb-4 tracking-widest">!anbya</div>
-        <p class="text-slate-400 text-xs tracking-widest uppercase">© 1928-2024 Kingdom of onva. All rights reserved.</p>
+        <p class="translate text-slate-400 text-xs tracking-widest uppercase" data-key="footer-copy">© 1928-2024 Kingdom of onva. All rights reserved.</p>
     </footer>
+
+    <script>
+        const translations = {
+            ja: {
+                "hero-title": "Optimized <br>Future.",
+                "hero-desc": "ユーラシア大陸の深部に位置するonva（ア゛ンヴァ）。1928年、不合理な言語と複雑な社会システムを廃し、18文字のbyam（ビャ文字）を核とした「最適化」を掲げて建国されました。",
+                "btn-learn": "Learn !anvum",
+                "label-culture": "Culture",
+                "culture-title": "合理主義による言語の再構築",
+                "culture-desc": "onvaは、既存の言語の冗長性を排除するために1928年に誕生しました。住民は主に白人系で構成され、論理的な思考と機能美を何よりも尊重します。彼らが使用する18文字のbyamは、情報の伝達コストを最小化するために設計された究極の最適化ツールです。",
+                "label-figure": "Prominent Figure",
+                "figure-desc": "onva出身のデジタルアート作家。記号を用いた芸術表現や、独自の感性に基づく世界構築を行っています。",
+                "nav-kingdom": "Kingdom",
+                "nav-anvum": "!Anvum",
+                "footer-copy": "© 1928-2024 Kingdom of onva. All rights reserved."
+            },
+            onva: {
+                "hero-title": "ritt <br> eti",
+                "hero-desc": "wo-n-!a h !anbya -!ann . won h be ritt . !a-n-u-m h bya ritt .",
+                "btn-learn": "ti !a-n-u-m",
+                "label-culture": "be ritt",
+                "culture-title": "ritt !ann bya",
+                "culture-desc": "wo-n-!a ritt h ritt . won h b-u ritt . bya be ritt won b .",
+                "label-figure": "won b",
+                "figure-desc": "!a-r-t-r won b . won h bya be-ritt . ritt be .",
+                "nav-kingdom": "wo-n-!a",
+                "nav-anvum": "!a-n-u-m",
+                "footer-copy": "wo-n-!a !anbya be . ritt b ."
+            }
+        };
+
+        let currentLang = 'ja';
+
+        function updateLanguage() {
+            const elements = document.querySelectorAll('[data-key]');
+            elements.forEach(el => {
+                const key = el.getAttribute('data-key');
+                const translation = translations[currentLang][key];
+                
+                // Reset processing status for byam.js
+                delete el.dataset.processed;
+                
+                if (currentLang === 'onva') {
+                    el.classList.add('onva-r');
+                } else {
+                    el.classList.remove('onva-r');
+                    el.style.display = ''; // Reset any potential hidden styles
+                }
+                
+                el.innerHTML = translation;
+            });
+
+            // Toggle button text
+            document.getElementById('lang-current').textContent = currentLang === 'ja' ? 'JP' : '!A';
+            
+            // Re-render byam icons
+            setTimeout(() => {
+                if (window.renderOnva) window.renderOnva();
+            }, 10);
+        }
+
+        document.getElementById('lang-toggle').addEventListener('click', () => {
+            currentLang = currentLang === 'ja' ? 'onva' : 'ja';
+            updateLanguage();
+        });
+
+        // Initialize with data keys
+        document.querySelector('h1').setAttribute('data-key', 'hero-title');
+        document.querySelector('header p').setAttribute('data-key', 'hero-desc');
+        document.querySelector('header a').setAttribute('data-key', 'btn-learn');
+        document.querySelectorAll('h2')[0].setAttribute('data-key', 'label-culture');
+        document.querySelectorAll('h3')[0].setAttribute('data-key', 'culture-title');
+        document.querySelectorAll('main p')[0].setAttribute('data-key', 'culture-desc');
+        document.querySelectorAll('h2')[1].setAttribute('data-key', 'label-figure');
+        document.querySelectorAll('main p')[1].setAttribute('data-key', 'figure-desc');
+    </script>
 
 </body>
 </html>

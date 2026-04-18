@@ -131,19 +131,45 @@
                 </div>
             </div>
         </section>
+        <!-- Dictionary Tools -->
+        <section class="mb-32">
+            <h2 class="text-2xl font-bold mb-10 flex items-center gap-3">
+                <span class="w-2 h-8 bg-indigo-500 rounded-full"></span>
+                Dictionary Tools (検索・解析)
+            </h2>
+            <div class="bg-white rounded-[2rem] p-8 border border-slate-100 shadow-sm space-y-12">
+                <!-- Search -->
+                <div class="space-y-4">
+                    <label class="block text-[10px] font-black uppercase tracking-widest text-slate-400">Search Dictionary (単語検索)</label>
+                    <input type="text" id="vocab-search" placeholder="意味や綴りで検索..." 
+                        class="w-full bg-slate-50 border-none rounded-2xl px-6 py-4 text-lg font-bold text-slate-900 focus:ring-2 focus:ring-indigo-500 outline-none transition">
+                </div>
+                
+                <!-- Analyzer -->
+                <div class="space-y-4">
+                    <label class="block text-[10px] font-black uppercase tracking-widest text-slate-400">Word Analyzer (単語分解)</label>
+                    <input type="text" id="analyzer-input" placeholder="分解したい単語を入力 (例: !aiwon)..." 
+                        class="w-full bg-slate-50 border-none rounded-2xl px-6 py-4 text-lg font-bold text-slate-900 focus:ring-2 focus:ring-purple-500 outline-none transition">
+                    <div id="analyzer-result" class="flex flex-wrap gap-4 p-6 bg-slate-50/50 rounded-2xl min-h-[120px] items-center justify-center">
+                        <p class="text-slate-300 text-sm italic">解析された文字がここに表示されます</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
         <!-- Dictionary Section -->
         <section class="mb-32">
             <h2 class="text-2xl font-bold mb-10 flex items-center gap-3">
                 <span class="w-2 h-8 bg-blue-500 rounded-full"></span>
                 Dictionary (単語集)
             </h2>
-            <div class="grid md:grid-cols-4 gap-8">
+            <div class="grid md:grid-cols-4 gap-8" id="vocab-container">
                 <div class="bg-white rounded-3xl p-8 border border-slate-100">
                     <h3 class="text-blue-500 font-black text-xs uppercase tracking-widest mb-6">Basics</h3>
                     <div class="space-y-4" id="vocab-basics"></div>
                 </div>
                 <div class="bg-white rounded-3xl p-8 border border-slate-100">
-                    <h3 class="text-blue-500 font-black text-xs uppercase tracking-widest mb-6">Concepts</h3>
+                    <h3 class="text-blue-500 font-black text-xs uppercase tracking-widest mb-6">Concepts & IT</h3>
                     <div class="space-y-4" id="vocab-concepts"></div>
                 </div>
                 <div class="bg-white rounded-3xl p-8 border border-slate-100">
@@ -153,6 +179,50 @@
                 <div class="bg-white rounded-3xl p-8 border border-slate-100">
                     <h3 class="text-emerald-500 font-black text-xs uppercase tracking-widest mb-6">Conversation</h3>
                     <div class="space-y-4" id="vocab-conv"></div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Phrasebook Section -->
+        <section class="mb-32">
+            <h2 class="text-2xl font-bold mb-10 flex items-center gap-3">
+                <span class="w-2 h-8 bg-orange-500 rounded-full"></span>
+                Phrasebook (例文集)
+            </h2>
+            <div class="grid md:grid-cols-2 gap-8">
+                <div class="bg-white rounded-3xl p-8 border border-slate-100">
+                    <h3 class="text-orange-500 font-black text-xs uppercase tracking-widest mb-6">Daily</h3>
+                    <div class="space-y-8">
+                        <div>
+                            <div class="onva-r text-3xl mb-2">b-!a . sye !anbya won</div>
+                            <div class="text-sm text-slate-500">こんにちは。私はonvaの民です。</div>
+                        </div>
+                        <div>
+                            <div class="onva-r text-3xl mb-2">yu i wo ?</div>
+                            <div class="text-sm text-slate-500">あなたは何を食べますか？</div>
+                        </div>
+                        <div>
+                            <div class="onva-r text-3xl mb-2">b-bya . sye h be</div>
+                            <div class="text-sm text-slate-500">ありがとう。私は美（心地よさ）を持っています。</div>
+                        </div>
+                    </div>
+                </div>
+                <div class="bg-white rounded-3xl p-8 border border-slate-100">
+                    <h3 class="text-sky-500 font-black text-xs uppercase tracking-widest mb-6">Technology</h3>
+                    <div class="space-y-8">
+                        <div>
+                            <div class="onva-r text-3xl mb-2">sye h !aiwon</div>
+                            <div class="text-sm text-slate-500">私はiPhoneを持っています。</div>
+                        </div>
+                        <div>
+                            <div class="onva-r text-3xl mb-2">ritt -!abh !ann</div>
+                            <div class="text-sm text-slate-500">AIがたった今、思考を得ました。</div>
+                        </div>
+                        <div>
+                            <div class="onva-r text-3xl mb-2">m-wo-bya b . ritt b</div>
+                            <div class="text-sm text-slate-500">ネットは良好です。AIは良いです。</div>
+                        </div>
+                    </div>
                 </div>
             </div>
         </section>
@@ -226,12 +296,15 @@
             basics: [
                 { k: "sye", m: "私" }, { k: "yu", m: "あなた" }, { k: "won", m: "人" },
                 { k: "won-yu", m: "友達" }, { k: "m", m: "水" }, { k: "z", m: "地面" },
-                { k: "hz", m: "家/場所" }, { k: "ge", m: "食べ物" }
+                { k: "hz", m: "家/場所" }, { k: "ge", m: "食べ物" },
+                { k: "b", m: "良/美" }, { k: "n", m: "否/悪" }
             ],
             concepts: [
                 { k: "!ann", m: "知恵/思考" }, { k: "!anbya", m: "国/中心" }, { k: "be", m: "美" },
                 { k: "wo-!a", m: "太陽" }, { k: "wo-u", m: "月" }, { k: "ritt", m: "AI/計算" },
-                { k: "p-t", m: "技術/道具" }
+                { k: "!aiwon", m: "iPhone/スマホ" }, { k: "ge-ritt", m: "PC/計算機" },
+                { k: "m-wo-bya", m: "ネット" }, { k: "h-!a", m: "電池/エネ" },
+                { k: "zwo-sye", m: "パスワード" }
             ],
             verbs: [
                 {k: "wor", m: "寝る"}, {k: "i", m: "食べる"}, {k: "h", m: "持つ"}, 
@@ -240,7 +313,7 @@
                 {k: "p-z", m: "座る/踏む"}, {k: "h-wo", m: "上げる"}
             ],
             conv: [
-                {k: "wo-!a", m: "こんにちは"}, {k: "b-bya", m: "ありがとう"}, {k: "n-bya", m: "ごめんなさい"},
+                {k: "b-!a", m: "こんにちは"}, {k: "b-bya", m: "ありがとう"}, {k: "n-bya", m: "ごめんなさい"},
                 {k: "te-wo", m: "さようなら"}, {k: "h-b", m: "お願い"}, {k: "b-u", m: "楽しい/良"},
                 {k: "sye-yu", m: "大好き"}
             ]
@@ -254,24 +327,89 @@
             grid.appendChild(el);
         });
 
-        const renderVocab = (id, data) => {
+        const renderVocab = (id, data, filter = "") => {
             const container = document.getElementById(id);
-            data.forEach(v => {
+            container.innerHTML = '';
+            
+            const filteredData = data.filter(v => 
+                v.k.toLowerCase().includes(filter.toLowerCase()) || 
+                v.m.includes(filter)
+            );
+
+            filteredData.forEach(v => {
                 const el = document.createElement('div');
                 el.className = 'vocab-item py-3 flex justify-between items-center';
                 el.innerHTML = `<div><div class="onva text-xl text-slate-900">${v.k}</div><div class="text-[9px] font-mono text-slate-400 uppercase">${v.k}</div></div><div class="text-sm font-bold text-slate-500">${v.m}</div>`;
                 container.appendChild(el);
             });
-
-            if (typeof window.renderOnva === 'function') {
-                window.renderOnva();
-            }
+            
+            if (typeof window.renderOnva === 'function') { window.renderOnva(); }
         };
 
-        renderVocab('vocab-basics', vocabulary.basics);
-        renderVocab('vocab-concepts', vocabulary.concepts);
-        renderVocab('vocab-verbs', vocabulary.verbs);
-        renderVocab('vocab-conv', vocabulary.conv);
+        const updateAllVocab = (filter = "") => {
+            renderVocab('vocab-basics', vocabulary.basics, filter);
+            renderVocab('vocab-concepts', vocabulary.concepts, filter);
+            renderVocab('vocab-verbs', vocabulary.verbs, filter);
+            renderVocab('vocab-conv', vocabulary.conv, filter);
+        };
+
+        updateAllVocab();
+
+        // Search Logic
+        document.getElementById('vocab-search').addEventListener('input', (e) => {
+            updateAllVocab(e.target.value);
+        });
+
+        // Analyzer Logic
+        const analyzeInput = document.getElementById('analyzer-input');
+        const analyzerResult = document.getElementById('analyzer-result');
+
+        analyzeInput.addEventListener('input', (e) => {
+            const text = e.target.value.trim();
+            if (!text) {
+                analyzerResult.innerHTML = '<p class="text-slate-300 text-sm italic">解析された文字がここに表示されます</p>';
+                return;
+            }
+
+            // 辞書と全文字を統合して長い順にソート（最長一致）
+            const allTerms = [
+                ...vocabulary.basics.map(v => ({ k: v.k, m: v.m, type: 'basic' })),
+                ...vocabulary.concepts.map(v => ({ k: v.k, m: v.m, type: 'concept' })),
+                ...vocabulary.verbs.map(v => ({ k: v.k, m: v.m, type: 'verb' })),
+                ...vocabulary.conv.map(v => ({ k: v.k, m: v.m, type: 'conv' })),
+                ...byams.map(b => ({ k: b.k, m: b.l, type: 'char' }))
+            ].sort((a, b) => b.k.length - a.k.length);
+
+            analyzerResult.innerHTML = '';
+            let currentIdx = 0;
+            const words = text.split(/\s+/); // スペース区切りも考慮
+
+            words.forEach(word => {
+                let wordIdx = 0;
+                while (wordIdx < word.length) {
+                    let matched = false;
+                    for (let term of allTerms) {
+                        if (word.startsWith(term.k, wordIdx)) {
+                            const card = document.createElement('div');
+                            const colorClass = term.type === 'char' ? 'text-slate-400' : 'text-indigo-600';
+                            card.className = 'bg-white p-4 rounded-xl shadow-sm border border-slate-100 flex flex-col items-center min-w-[100px] animate-in fade-in zoom-in duration-300';
+                            card.innerHTML = `
+                                <div class="onva text-2xl mb-2">${term.k}</div>
+                                <div class="text-[11px] font-bold ${colorClass} mb-1">${term.m}</div>
+                                <div class="text-[8px] font-mono text-slate-300">${term.k}</div>
+                            `;
+                            analyzerResult.appendChild(card);
+                            wordIdx += term.k.length;
+                            matched = true;
+                            break;
+                        }
+                    }
+                    if (!matched) wordIdx++;
+                }
+            });
+            
+            if (typeof window.renderOnva === 'function') { window.renderOnva(); }
+        });
 
         // --- Converter Logic ---
         const input = document.getElementById('converter-input');

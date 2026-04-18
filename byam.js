@@ -42,8 +42,8 @@
         
         let style = "height:1em; vertical-align:middle; display:inline-block; margin:0 0.05em;";
         if (key === "-") {
-            // 他の文字と馴染む中間的なサイズ
-            style = "height:0.45em; width:0.3em; vertical-align:middle; display:inline-block; margin:0 0.08em; object-fit:contain; opacity:0.8;";
+            // 他の文字に負けない、しっかりとした繋ぎのサイズ
+            style = "height:0.9em; width:0.8em; vertical-align:middle; display:inline-block; margin:0 0.05em; object-fit:contain;";
         }
         
         return `<img src="${url}" alt="${key}" style="${style}">`;
