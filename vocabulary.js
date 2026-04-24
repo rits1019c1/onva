@@ -85,7 +85,7 @@ const VOCABULARY_DATA = {
     ],
     "phrases": [
         { "k": "sye m-i m", "m": "私は水を飲む。（S:sye V:m-i O:m）" },
-        { "k": "yu i wo", "m": "あなたは何を食べる？（S:yu V:i O:wo=疑問）" },
+        { "k": "i yu wo", "m": "あなたは何を食べる？（S:yu V:i O:wo=疑問）" },
         { "k": "sye t-t !anbyawon", "m": "私はonva人です。（S:sye Cop:t-t C:!anbyawon）" },
         { "k": "!anbyam t-t n-n!ag bya", "m": "onva語は無駄のない言葉です。（S:!anbyam Cop:t-t C:n-n!ag bya）" },
         { "k": "sye h wo-t h-t byam", "m": "私は18文字を持つ。（S:sye V:h O:wo-t h-t byam）" },
