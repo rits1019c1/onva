@@ -1,6 +1,6 @@
 (function () {
-    const BASE_URL = "https://rits1019c1.github.io/byam_letters/";
-    const WHITE_BASE_URL = "https://rits1019c1.github.io/byam_letters/white_letters/";
+    const BASE_URL = "https://ec2045.github.io/byam_letters/";
+    const WHITE_BASE_URL = "https://ec2045.github.io/byam_letters/white_letters/";
 
     // 文字データ定義
     const onvaData = [
