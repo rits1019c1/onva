@@ -117,6 +117,6 @@ const VOCABULARY_DATA = {
         { "k": "sye h wo-t h-t byam", "m": "私は18文字を持つ。（S:sye V:h O:wo-t h-t byam）" },
         { "k": "b-!a sye t-t !anbyawon", "m": "こんにちは、私はonva人です。（挨拶 + S:sye Cop:t-t C:!anbyawon）" },
         { "k": "b-bya sye h be", "m": "ありがとう、私は美を持つ。（挨拶 + S:sye V:h O:be）" },
-        { "k": "wo !ann b n!ag t-m t-m", "m": "毎秒毎秒良い無駄なことを考えろ（命令:wo V:!ann O:b n!ag 時:t-m t-m）" }
+        { "k": "wo !ann-b-n!ag t-m t-m", "m": "毎秒毎秒良い無駄なことを考えろ（命令:wo V:!ann O:b n!ag 時:t-m t-m）" }
     ]
 };
