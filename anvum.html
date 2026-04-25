@@ -134,104 +134,220 @@
                 <span class="w-2 h-8 bg-emerald-500 rounded-full"></span>
                 Grammar (文法)
             </h2>
-            <div class="grid md:grid-cols-2 gap-8">
-                <div class="bg-white rounded-3xl p-8 border border-slate-100 space-y-6">
+            <div class="grid md:grid-cols-3 gap-8">
+
+                <!-- Col 1: SVO + Copula + 疑問文 -->
+                <div class="bg-white rounded-3xl p-8 border border-slate-100 space-y-8">
+
                     <div>
-                        <h4 class="font-bold text-slate-900 mb-2">基本語順: SVO</h4>
-                        <p class="text-sm text-slate-500 mb-3 italic">「私は水と食べる（飲む）」</p>
-                        <p class="onva-r text-3xl">sye i m</p>
-                        <div class="mt-4 pt-4 border-t border-slate-50">
-                            <h5 class="text-xs font-black uppercase tracking-widest text-slate-400 mb-2">Copula (＝)</h5>
-                            <p class="text-sm text-slate-600 mb-2"><code class="bg-slate-100 text-slate-800 px-1 py-0.5 rounded font-mono">t-t</code> を使って「A は B である」を表します</p>
-                            <div class="flex items-center gap-2">
-                                <span class="onva-r text-xl text-slate-800">sye t-t !anbyawon</span>
-                                <span class="text-xs text-slate-400 font-bold">(私はオンヴァ人です)</span>
+                        <h4 class="font-bold text-slate-900 mb-1">① 基本語順: SVO</h4>
+                        <p class="text-xs text-slate-400 mb-3">主語 + 動詞 + 目的語</p>
+                        <div class="space-y-2">
+                            <div class="flex items-center gap-3 bg-slate-50 rounded-xl px-4 py-2">
+                                <span class="onva-r text-xl text-slate-800">sye i m</span>
+                                <span class="text-xs text-slate-500">私は水を飲む</span>
+                            </div>
+                            <div class="flex items-center gap-3 bg-slate-50 rounded-xl px-4 py-2">
+                                <span class="onva-r text-xl text-slate-800">yu i</span>
+                                <span class="text-xs text-slate-500">あなたが食べる</span>
                             </div>
                         </div>
                     </div>
-                    <hr class="border-slate-50">
-                    <div>
-                        <h4 class="font-bold text-slate-900 mb-2">疑問文</h4>
-                        <p class="text-sm text-slate-500 mb-2">Yes/No: 動詞を文頭へ / 内容疑問: 不明要素を <span
-                                class="onva-r">wo</span> に置換</p>
-                        <div class="flex flex-wrap items-center gap-x-6 gap-y-4">
-                            <div class="flex items-center gap-2">
-                                <span class="onva-r text-2xl whitespace-nowrap">yu i wo</span>
-                                <span class="text-sm text-slate-600">(あなたは何を食べる？)</span>
-                                <span class="text-slate-400 font-black ml-1">?</span>
-                            </div>
-                            <span class="text-sm font-bold text-slate-700">Yes :</span>
-                            <span class="onva-r text-2xl whitespace-nowrap">sye!a</span><br>
 
-                            <span class="text-sm font-bold text-slate-700">No :</span>
-                            <span class="onva-r text-2xl whitespace-nowrap">ni!a</span>
+                    <hr class="border-slate-50">
+
+                    <div>
+                        <h4 class="font-bold text-slate-900 mb-1">② コピュラ (＝)</h4>
+                        <p class="text-xs text-slate-400 mb-3"><code class="bg-slate-100 px-1 rounded font-mono">t-t</code> で「A は B である」</p>
+                        <div class="space-y-2">
+                            <div class="flex items-center gap-3 bg-slate-50 rounded-xl px-4 py-2">
+                                <span class="onva-r text-xl text-slate-800">sye t-t !anbyawon</span>
+                                <span class="text-xs text-slate-500">私はonva人だ</span>
+                            </div>
                         </div>
+                    </div>
+
+                    <hr class="border-slate-50">
+
+                    <div>
+                        <h4 class="font-bold text-slate-900 mb-1">③ 否定: <code class="bg-rose-50 text-rose-600 px-1 rounded font-mono text-base">n-</code></h4>
+                        <p class="text-xs text-slate-400 mb-3">語頭に n- を付ける</p>
+                        <div class="space-y-2">
+                            <div class="flex items-center gap-3 bg-slate-50 rounded-xl px-4 py-2">
+                                <span class="onva-r text-xl text-slate-800">n-i</span>
+                                <span class="text-xs text-slate-500">食べない</span>
+                            </div>
+                            <div class="flex items-center gap-3 bg-slate-50 rounded-xl px-4 py-2">
+                                <span class="onva-r text-xl text-slate-800">n-n!ag</span>
+                                <span class="text-xs text-slate-500">無駄のない（最適化）</span>
+                            </div>
+                            <div class="flex items-center gap-3 bg-slate-50 rounded-xl px-4 py-2">
+                                <span class="onva-r text-xl text-slate-800">n-ti-wor</span>
+                                <span class="text-xs text-slate-500">寝ないこと</span>
+                            </div>
+                        </div>
+                        <p class="text-[10px] text-slate-400 mt-2">※ 接頭辞が重なる場合、n- が最優先</p>
                     </div>
                 </div>
-                <div class="bg-white rounded-3xl p-8 border border-slate-100 space-y-6">
+
+                <!-- Col 2: 疑問文3パターン + 命令文 -->
+                <div class="bg-white rounded-3xl p-8 border border-slate-100 space-y-8">
+
                     <div>
-                        <h4 class="font-bold text-slate-900 mb-2">時制と相・受け身</h4>
-                        <p class="text-sm text-slate-500 mb-2">過去: 動詞+<span class="onva-r">p</span> / 完了: 主語<span
-                                class="onva-r">-!abh</span> / 受け身: 動詞+<span class="onva-r">ep</span></p>
-                        <div class="grid grid-cols-1 gap-3">
-                            <div class="flex items-center gap-2">
-                                <span class="onva-r text-2xl">i p</span>
-                                <span class="text-xs font-bold text-slate-600">(食べた)</span>
+                        <h4 class="font-bold text-slate-900 mb-4">④ 疑問文 (3パターン)</h4>
+
+                        <div class="space-y-4">
+                            <div class="bg-blue-50 rounded-2xl p-4">
+                                <h5 class="text-[10px] font-black uppercase text-blue-600 mb-2 tracking-widest">A. Yes/No疑問文</h5>
+                                <p class="text-xs text-slate-500 mb-3">動詞を文頭に前置する</p>
+                                <div class="space-y-2">
+                                    <div class="flex items-center gap-3">
+                                        <span class="onva-r text-xl">i yu</span>
+                                        <span class="text-xs text-slate-600">食べる？</span>
+                                    </div>
+                                    <div class="flex items-center gap-3">
+                                        <span class="onva-r text-xl">wor won</span>
+                                        <span class="text-xs text-slate-600">彼は寝ている？</span>
+                                    </div>
+                                </div>
                             </div>
-                            <div class="flex items-center gap-2">
-                                <span class="onva-r text-2xl">sye-!abh i</span>
-                                <span class="text-xs font-bold text-slate-600">(私はたった今食べた)</span>
+
+                            <div class="bg-indigo-50 rounded-2xl p-4">
+                                <h5 class="text-[10px] font-black uppercase text-indigo-600 mb-2 tracking-widest">B. 内容疑問文（誰/何）</h5>
+                                <p class="text-xs text-slate-500 mb-3">不明な箇所に <code class="bg-white px-1 rounded font-mono">wo</code> を置く</p>
+                                <div class="space-y-2">
+                                    <div class="flex items-center gap-3">
+                                        <span class="onva-r text-xl">i wo</span>
+                                        <span class="text-xs text-slate-600">誰が食べる？（主語が不明）</span>
+                                    </div>
+                                    <div class="flex items-center gap-3">
+                                        <span class="onva-r text-xl">sye i wo</span>
+                                        <span class="text-xs text-slate-600">私は何を食べる？（目的語が不明）</span>
+                                    </div>
+                                </div>
                             </div>
-                            <div class="flex items-center gap-2">
-                                <span class="onva-r text-2xl">i-ep</span>
-                                <span class="text-xs font-bold text-slate-600">(食べられる)</span>
+
+                            <div class="bg-violet-50 rounded-2xl p-4">
+                                <h5 class="text-[10px] font-black uppercase text-violet-600 mb-2 tracking-widest">C. wh+疑問（動詞前置+wo）</h5>
+                                <p class="text-xs text-slate-500 mb-3">A+Bの組み合わせ</p>
+                                <div class="space-y-2">
+                                    <div class="flex items-center gap-3">
+                                        <span class="onva-r text-xl">wo yu</span>
+                                        <span class="text-xs text-slate-600">あなたは何をする？</span>
+                                    </div>
+                                </div>
                             </div>
                         </div>
                     </div>
+
                     <hr class="border-slate-50">
+
                     <div>
-                        <h4 class="font-bold text-slate-900 mb-2">名詞化・仮定・命令</h4>
-                        <ul class="text-sm text-slate-600 space-y-2">
-                            <li>• <strong>動詞の名詞化:</strong> 動詞の前に <code
-                                    class="bg-slate-100 text-blue-600 px-1 py-0.5 rounded">ti-</code> をつけると名詞化します <div
-                                    class="inline-flex items-center gap-2 ml-2"><span
-                                        class="onva-r text-xl text-slate-800">ti-i</span>（食べること）</div>
-                            </li>
-                            <li>• <strong>否定:</strong> 語頭に <code
-                                    class="bg-slate-100 text-rose-600 px-1 py-0.5 rounded">n-</code> をつけると否定表現になります。
-                                <div class="mt-1 space-y-1">
-                                    <div class="flex items-center gap-2">
-                                        <span class="onva-r text-xl text-slate-800">n-n!ag</span><span>（無駄のない / 最適化された）</span>
-                                    </div>
-                                    <div class="text-xs text-slate-400">※接頭辞が重なる場合、n- が最優先されます：</div>
-                                    <div class="flex items-center gap-2">
-                                        <span class="onva-r text-xl text-slate-800">n-ti-wor</span><span>（寝ないこと）</span>
-                                    </div>
+                        <h4 class="font-bold text-slate-900 mb-1">⑤ 命令文</h4>
+                        <p class="text-xs text-slate-400 mb-3">文頭に <code class="bg-slate-100 px-1 rounded font-mono">wo</code> を置く（疑問のwoとは別用途）</p>
+                        <div class="space-y-2 bg-rose-50 rounded-2xl p-4">
+                            <div class="flex items-center gap-3">
+                                <span class="onva-r text-xl">wo i</span>
+                                <span class="text-xs text-slate-600">食べろ！</span>
+                            </div>
+                            <div class="flex items-center gap-3">
+                                <span class="onva-r text-xl">wo te</span>
+                                <span class="text-xs text-slate-600">行け！</span>
+                            </div>
+                        </div>
+                        <p class="text-[10px] text-slate-400 mt-2">★「wo + 動詞」が命令。「動詞 + wo」は疑問と区別すること</p>
+                    </div>
+                </div>
+
+                <!-- Col 3: 時制・名詞化・数字・接続詞 -->
+                <div class="bg-white rounded-3xl p-8 border border-slate-100 space-y-8">
+
+                    <div>
+                        <h4 class="font-bold text-slate-900 mb-1">⑥ 時制・受け身・完了</h4>
+                        <div class="space-y-3 mt-3">
+                            <div>
+                                <p class="text-[10px] font-black text-slate-400 uppercase tracking-widest mb-1">過去: 動詞 + -p</p>
+                                <div class="flex items-center gap-3 bg-slate-50 rounded-xl px-4 py-2">
+                                    <span class="onva-r text-xl">i-p</span>
+                                    <span class="text-xs text-slate-500">食べた</span>
                                 </div>
-                            </li>
-                            <li>• <strong>仮定法:</strong> 文頭に <code
-                                    class="bg-slate-100 text-slate-800 px-1 py-0.5 rounded font-mono">!abu</code> をつける
-                            </li>
-                            <li>• <strong>命令形:</strong> <code
-                                    class="bg-slate-100 text-slate-800 px-1 py-0.5 rounded font-mono">wo</code> を主語にする
-                                <div class="inline-flex items-center gap-2 ml-2"><span
-                                        class="onva-r text-xl text-slate-800">wo i</span>（食べろ）</div>
-                            </li>
-                            <li>• <strong>大きな数字:</strong> 数を並べることで掛け算的に表現できます。
-                                <div class="flex items-center gap-2 mt-1">
-                                    <span class="onva-r text-xl text-slate-800">p-uwo-t!a</span><span>（2000 / 2×1000）</span>
+                            </div>
+                            <div>
+                                <p class="text-[10px] font-black text-slate-400 uppercase tracking-widest mb-1">受け身: 動詞 + -ep</p>
+                                <div class="flex items-center gap-3 bg-slate-50 rounded-xl px-4 py-2">
+                                    <span class="onva-r text-xl">i-ep</span>
+                                    <span class="text-xs text-slate-500">食べられる</span>
                                 </div>
-                            </li>
-                            <li>• <strong>接続詞:</strong> 文と文を論理的に繋ぎます。
-                                <div class="flex items-center gap-2 mt-1">
-                                    <span class="onva-r text-xl text-slate-800">t-tr</span><span>（そのため / だから）</span>
+                            </div>
+                            <div>
+                                <p class="text-[10px] font-black text-slate-400 uppercase tracking-widest mb-1">完了(直前): 主語 + -!abh</p>
+                                <div class="flex items-center gap-3 bg-slate-50 rounded-xl px-4 py-2">
+                                    <span class="onva-r text-xl">sye-!abh i</span>
+                                    <span class="text-xs text-slate-500">たった今食べた</span>
                                 </div>
-                            </li>
-                        </ul>
+                            </div>
+                        </div>
+                    </div>
+
+                    <hr class="border-slate-50">
+
+                    <div>
+                        <h4 class="font-bold text-slate-900 mb-1">⑦ 動詞の名詞化: <code class="bg-blue-50 text-blue-600 px-1 rounded font-mono">ti-</code></h4>
+                        <p class="text-xs text-slate-400 mb-3">動詞の前に ti- を付ける</p>
+                        <div class="space-y-2">
+                            <div class="flex items-center gap-3 bg-slate-50 rounded-xl px-4 py-2">
+                                <span class="onva-r text-xl">ti-i</span>
+                                <span class="text-xs text-slate-500">食べること</span>
+                            </div>
+                            <div class="flex items-center gap-3 bg-slate-50 rounded-xl px-4 py-2">
+                                <span class="onva-r text-xl">ti-te</span>
+                                <span class="text-xs text-slate-500">行くこと</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <hr class="border-slate-50">
+
+                    <div>
+                        <h4 class="font-bold text-slate-900 mb-1">⑧ 数字・単位</h4>
+                        <p class="text-xs text-slate-400 mb-3">数を並べると掛け算的に合成</p>
+                        <div class="space-y-2">
+                            <div class="flex items-center gap-3 bg-slate-50 rounded-xl px-4 py-2">
+                                <span class="onva-r text-xl">p-u wo-t</span>
+                                <span class="text-xs text-slate-500">20 (2×10)</span>
+                            </div>
+                            <div class="flex items-center gap-3 bg-slate-50 rounded-xl px-4 py-2">
+                                <span class="onva-r text-xl">p-u wo-t!a</span>
+                                <span class="text-xs text-slate-500">2000 (2×1000)</span>
+                            </div>
+                        </div>
+                        <p class="text-[10px] font-black text-slate-400 uppercase tracking-widest mt-3 mb-1">時間単位</p>
+                        <div class="flex gap-2 flex-wrap text-xs text-slate-600">
+                            <span class="bg-slate-50 px-2 py-1 rounded-lg"><span class="onva-r">t-m</span> 秒</span>
+                            <span class="bg-slate-50 px-2 py-1 rounded-lg"><span class="onva-r">m-t</span> 分</span>
+                            <span class="bg-slate-50 px-2 py-1 rounded-lg"><span class="onva-r">wo-m</span> 時</span>
+                        </div>
+                    </div>
+
+                    <hr class="border-slate-50">
+
+                    <div>
+                        <h4 class="font-bold text-slate-900 mb-1">⑨ 接続詞・仮定</h4>
+                        <div class="space-y-2">
+                            <div class="flex items-center gap-3 bg-slate-50 rounded-xl px-4 py-2">
+                                <span class="onva-r text-xl">t-tr</span>
+                                <span class="text-xs text-slate-500">そのため / だから</span>
+                            </div>
+                            <div class="flex items-center gap-3 bg-slate-50 rounded-xl px-4 py-2">
+                                <span class="onva-r text-xl">!abu</span>
+                                <span class="text-xs text-slate-500">もし〜なら（仮定）</span>
+                            </div>
+                        </div>
                     </div>
                 </div>
             </div>
         </section>
+
         <!-- Numeral Converter Tool -->
         <section class="mb-32">
             <h2 class="text-2xl font-bold mb-10 flex items-center gap-3">
@@ -293,12 +409,7 @@
                 <!-- Tab Switching -->
                 <div class="flex flex-wrap gap-2" id="vocab-tabs">
                     <button onclick="switchTab('all')" class="vocab-tab active" data-tab="all">All</button>
-                    <button onclick="switchTab('basics')" class="vocab-tab" data-tab="basics">Basics</button>
-                    <button onclick="switchTab('concepts')" class="vocab-tab" data-tab="concepts">Concepts</button>
-                    <button onclick="switchTab('verbs')" class="vocab-tab" data-tab="verbs">Verbs</button>
-                    <button onclick="switchTab('phrases')" class="vocab-tab" data-tab="phrases">Phrases</button>
-                    <button onclick="switchTab('conv')" class="vocab-tab" data-tab="conv">Conv</button>
-                    <button onclick="switchTab('geo')" class="vocab-tab" data-tab="geo">Geo</button>
+                    <!-- Tabs dynamically injected -->
                 </div>
             </div>
             
@@ -412,7 +523,7 @@
             { k: "!a", l: "ア゛" }, { k: "e", l: "エ" }, { k: "u", l: "ウ" }, { k: "wo", l: "ヲ" },
             { k: "i", l: "イ" }, { k: "yu", l: "ユ" }, { k: "r", l: "R" }, { k: "b", l: "B" },
             { k: "g", l: "G" }, { k: "p", l: "P" }, { k: "bya", l: "ビャ" }, { k: "m", l: "M" },
-            { k: "n", l: "ン" }, { k: "z", l: "Z" }, { k: "sye", l: "シェ" }, { k: "ge", l: "ゲ" },
+            { k: "n", l: "ン" }, { k: "z", l: "Z" }, { k: "sye", l: "シェ" }, { k: "f", l: "F" },
             { k: "t", l: "T" }, { k: "h", l: "H" }, { k: "-", l: "-" }
         ];
 
@@ -420,6 +531,21 @@
         let allTerms = [];
 
         function init() {
+            if (typeof VOCABULARY_DATA === 'undefined') return;
+            vocabulary = VOCABULARY_DATA;
+
+            // Update Tabs dynamically
+            const tabContainer = document.getElementById('vocab-tabs');
+            const categories = Object.keys(vocabulary).filter(c => c !== 'phrases' && c !== 'all');
+            categories.forEach(cat => {
+                const btn = document.createElement('button');
+                btn.onclick = () => switchTab(cat);
+                btn.className = 'vocab-tab';
+                btn.dataset.tab = cat;
+                btn.textContent = cat.charAt(0).toUpperCase() + cat.slice(1);
+                tabContainer.appendChild(btn);
+            });
+
             // Prepare allTerms for analyzer
             allTerms = [];
             Object.values(vocabulary).forEach(list => {
@@ -483,9 +609,19 @@
             categorySection.className = 'bg-white rounded-[2rem] p-8 border border-slate-100 shadow-sm animate-in fade-in slide-in-from-bottom-2 duration-300';
             
             let colorClass = 'text-blue-500';
-            if (catName === 'conv') colorClass = 'text-emerald-500';
-            if (catName === 'geo') colorClass = 'text-orange-500';
-            if (catName === 'phrases') colorClass = 'text-rose-500';
+            const colors = {
+                grammar: 'text-indigo-500',
+                pronouns: 'text-sky-500',
+                adjectives: 'text-emerald-500',
+                nouns: 'text-slate-500',
+                verbs: 'text-violet-500',
+                numbers: 'text-orange-500',
+                time: 'text-amber-500',
+                conv: 'text-rose-500',
+                geo: 'text-cyan-500',
+                phrases: 'text-rose-500'
+            };
+            colorClass = colors[catName] || colorClass;
 
             categorySection.innerHTML = `<h3 class="${colorClass} font-black text-[10px] uppercase tracking-widest mb-6">${catName}</h3>`;
             

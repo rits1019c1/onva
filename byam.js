@@ -19,7 +19,7 @@
         { key: "n", label: "ン", ext: "svg" },
         { key: "z", label: "Z", ext: "svg" },
         { key: "sye", label: "シェ", ext: "svg" },
-        { key: "ge", label: "ゲ", ext: "svg" },
+        { key: "f", label: "F", ext: "svg" },
         { key: "t", label: "T", ext: "svg" },
         { key: "h", label: "H", ext: "svg" },
         { key: "-", label: "-", ext: "svg" }
@@ -66,7 +66,7 @@
             : "display:inline-flex; flex-direction:column; align-items:center; vertical-align:middle;";
 
         let finalHtml = `<span class="onva-container" style="${containerStyle}">`;
-        let imagePart = '<span class="onva-images" style="display:flex; align-items:center; flex-wrap:nowrap;">';
+        let imagePart = '<span class="onva-images" style="display:flex; align-items:center; flex-wrap:wrap;">';
         let labelText = '';
 
         words.forEach((word, wordIdx) => {

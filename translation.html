@@ -244,7 +244,7 @@
             { k: "!a", m: "ア゛" }, { k: "e", m: "エ" }, { k: "u", m: "ウ" }, { k: "wo", m: "ヲ" },
             { k: "i", m: "イ" }, { k: "yu", m: "ユ" }, { k: "r", m: "R" }, { k: "b", m: "B" },
             { k: "g", m: "G" }, { k: "p", m: "P" }, { k: "bya", m: "ビャ" }, { k: "m", m: "M" },
-            { k: "n", m: "ン" }, { k: "z", m: "Z" }, { k: "sye", m: "シェ" }, { k: "ge", m: "ゲ" },
+            { k: "n", m: "ン" }, { k: "z", m: "Z" }, { k: "sye", m: "シェ" }, { k: "f", m: "F" },
             { k: "t", m: "T" }, { k: "h", m: "H" }, { k: "-", m: "-" }
         ];
         byamChars.forEach(b => {
@@ -255,7 +255,7 @@
         searchTerms.sort((a, b) => b.k.length - a.k.length);
 
         // ─── Core Functions ───
-        function translateOnva() {
+        async function translateOnva() {
             const input = document.getElementById('onva-input').value.trim();
             if (!input) {
                 document.getElementById('results-area').classList.add('hidden');
@@ -266,9 +266,88 @@
 
             const tokens = tokenize(input);
             renderTokens(tokens);
+            // Extract raw meanings for Gemini with contextual hints
+            const getMeaning = (t) => {
+                if (t.type === 'known') return t.meaning;
+                if (t.type === 'morpheme') return t.morphemes.filter(m => m.source === 'dictionary').map(m => m.meaning).join('+');
+                return t.raw;
+            };
+
+            const getCategory = (t) => wordCategory.get(t.raw) || '';
+
+            const lines = [];
+            let i = 0;
+            while (i < tokens.length) {
+                const t = tokens[i];
+                const raw = t.raw.toLowerCase();
+
+                // (1) wo: 文頭=命令、文末=疑問終止、中間=疑問対象
+                if (raw === 'wo') {
+                    if (i === 0) {
+                        lines.push('★ [命令文の開始] — 以下の動詞は命令形で訳すこと');
+                    } else if (i === tokens.length - 1) {
+                        lines.push('★ [疑問文] — 上記の文を疑問文として訳すこと（誰が？/何を？）');
+                    } else {
+                        lines.push('★ [疑問の対象 = 誰/何]');
+                    }
+                    i++; continue;
+                }
+
+                // (2) 形容詞 + 名詞のペア検出
+                const cat = getCategory(t);
+                if (cat === 'adjectives' && i + 1 < tokens.length) {
+                    const next = tokens[i + 1];
+                    const nextCat = getCategory(next);
+                    if (nextCat === 'nouns' || next.type === 'morpheme') {
+                        lines.push(`[形容詞+名詞] ${getMeaning(t)} + ${getMeaning(next)} → 「${getMeaning(t).replace(/\[形容詞\]\s*/,'')}な${getMeaning(next).replace(/\[[^\]]+\]\s*/,'')}」`);
+                        i += 2; continue;
+                    }
+                }
+
+                // (3) 同じ単語の繰り返し検出
+                if (i + 1 < tokens.length && tokens[i + 1].raw === t.raw) {
+                    lines.push(`[繰り返し→強調] ${getMeaning(t)} × 2 → 「一${getMeaning(t).replace(/\[.*?\]\s*/,'').split('/')[0]}ずつ」または「${getMeaning(t).replace(/\[.*?\]\s*/,'').split('/')[0]}一つ一つ」`);
+                    i += 2; continue;
+                }
+
+                // (4) Yes/No疑問 (文頭動詞)
+                if (i === 0 && cat === 'verbs') {
+                    lines.push(`★ [Yes/No疑問文] ${getMeaning(t)} — 動詞が文頭のため疑問文`);
+                    i++; continue;
+                }
+
+                // (5) 通常の単語
+                lines.push(getMeaning(t));
+                i++;
+            }
+
+            const promptContext = lines.join('\n');
+
+            // Try Gemini API first for natural translation
+            try {
+                const response = await fetch('http://onvaapi.tadoris-e.com/translate', {
+                    method: 'POST',
+                    headers: { 'Content-Type': 'application/json' },
+                    body: JSON.stringify({ 
+                        text: promptContext,
+                        original: input
+                    })
+                });
+
+                if (!response.ok) throw new Error('API request failed');
+
+                const data = await response.json();
+                if (data.translation) {
+                    const output = document.getElementById('translation-output');
+                    output.innerHTML = `${data.translation}<br><span class="text-[10px] text-blue-500 font-bold uppercase tracking-widest mt-2 block">✨ AI Optimized Translation</span>`;
+                    return; // Success, skip local rendering
+                }
+            } catch (error) {
+                console.warn('Gemini API Error, falling back to local translation logic:', error);
+            }
+
+            // Fallback to normal translation logic if API fails
             renderTranslation(tokens);
-            renderDetailTable(tokens);
-            checkPhraseHint(input);
         }
 
         function tokenize(input) {
@@ -350,10 +429,10 @@
 
         const numberValues = {
             'n-!a': 0, 't-i': 1, 'p-u': 2, 'r-e': 3, 'z-h': 4,
-            'm-!a': 5, 'ge-t': 6, 'yu-i': 7, 'h-t': 8, 'n-wo': 9,
+            'm-!a': 5, 'f-t': 6, 'yu-i': 7, 'h-t': 8, 'n-wo': 9,
             'wo-t': 10, 't-wo': 100, 'wo-t!a': 1000
         };
-        const digitKeys = new Set(['n-!a','t-i','p-u','r-e','z-h','m-!a','ge-t','yu-i','h-t','n-wo']);
+        const digitKeys = new Set(['n-!a','t-i','p-u','r-e','z-h','m-!a','f-t','yu-i','h-t','n-wo']);
         const placeKeys = new Set(['wo-t','t-wo','wo-t!a']);
 
         function getNumericValue(key) {
