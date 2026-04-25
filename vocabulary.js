@@ -124,7 +124,7 @@ const VOCABULARY_DATA = {
         { "k": "i yu wo", "m": "あなたは何を食べる？（S:yu V:i O:wo=疑問）" },
         { "k": "sye t-t !anbyawon", "m": "私はonva人です。（S:sye Cop:t-t C:!anbyawon）" },
         { "k": "!anbyam t-t n-n!ag bya", "m": "onva語は無駄のない言葉です。（S:!anbyam Cop:t-t C:n-n!ag bya）" },
-        { "k": "sye h t-i wo-t  h-t  byam", "m": "私は18文字を持つ。（S:sye V:h O:wo-t h-t byam）" },
+        { "k": "sye h t-i wo-t h-t byam", "m": "私は18文字を持つ。（S:sye V:h O:wo-t h-t byam）" },
         { "k": "b-!a sye t-t !anbyawon", "m": "こんにちは、私はonva人です。（挨拶 + S:sye Cop:t-t C:!anbyawon）" },
         { "k": "b-bya sye h be", "m": "ありがとう、私は美を持つ。（挨拶 + S:sye V:h O:be）" },
         { "k": "wo !ann-b-n!ag t-m t-m", "m": "毎秒毎秒良い無駄なことを考えろ（命令:wo V:!ann O:b n!ag 時:t-m t-m）" }
