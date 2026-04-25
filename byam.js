@@ -62,11 +62,11 @@
 
         // イタリックモードではコンテナ全体を少し傾ける（padding で余白確保）
         const containerStyle = isItalic
-            ? "display:inline-flex; flex-direction:column; align-items:center; vertical-align:middle; padding: 0 0.15em;"
-            : "display:inline-flex; flex-direction:column; align-items:center; vertical-align:middle;";
+            ? "display:inline-flex; flex-direction:column; align-items:center; vertical-align:middle; padding: 0 0.15em; overflow:visible;"
+            : "display:inline-flex; flex-direction:column; align-items:center; vertical-align:middle; overflow:visible;";
 
         let finalHtml = `<span class="onva-container" style="${containerStyle}">`;
-        let imagePart = '<span class="onva-images" style="display:flex; align-items:center; flex-wrap:wrap;">';
+        let imagePart = '<span class="onva-images" style="display:flex; align-items:center; flex-wrap:wrap; overflow:visible;">';
         let labelText = '';
 
         words.forEach((word, wordIdx) => {
